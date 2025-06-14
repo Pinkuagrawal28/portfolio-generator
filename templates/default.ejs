@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= data.name %> | <%= data.title %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Hero Section -->
+    <header>
+      <div class="content">
+        <h2><%= data.tagline || "Currently available for freelance worldwide 🌍" %></h2>
+        <h1><%= data.name %></h1>
+        <h2><%= data.title %></h2>
+        <a href="#projects" class="cta">View Projects</a>
+        <% if (data.resume) { %>
+          <a href="<%= data.resume %>" class="cta" target="_blank">Download Resume</a>
+        <% } %>
+      </div>
+      <div class="hero-image">
+        <img src="./../assets/hero.svg" alt="Person sitting at a desk working on a laptop, surrounded by plants and books in a bright, modern workspace. The scene conveys a focused and positive atmosphere.">
+      <!-- Save this as assets/hero.svg -->
+      </div>
+    </header>
+
+    <!-- About Me -->
+    <section>
+      <h2>About Me</h2>
+      <p><%= data.bio %></p>
+      <ul>
+        <% if (data.email) { %><li><strong>Email:</strong> <%= data.email %></li><% } %>
+        <% if (data.phone) { %><li><strong>Phone:</strong> <%= data.phone %></li><% } %>
+        <% if (data.location) { %><li><strong>Location:</strong> <%= data.location %></li><% } %>
+      </ul>
+    </section>
+
+    <!-- Skills / Tech Stack -->
+    <% if (data.skills) { %>
+      <section>
+        <h2>Skills</h2>
+        <ul>
+          <% Object.entries(data.skills).forEach(([category, skills]) => { %>
+            <li><strong><%= category %>:</strong> <%= skills.join(', ') %></li>
+          <% }); %>
+        </ul>
+      </section>
+    <% } %>
+
+    <!-- Projects -->
+    <% if (data.projects && data.projects.length) { %>
+      <section id="projects">
+        <h2>Projects</h2>
+        <% data.projects.forEach(function(project) { %>
+          <div class="project">
+            <h3><%= project.title %></h3>
+            <p><%= project.description %></p>
+            <% if (project.tech) { %>
+              <p><strong>Tech:</strong> <%= project.tech.join(', ') %></p>
+            <% } %>
+            <% if (project.image) { %>
+              <img src="<%= project.image %>" alt="<%= project.title %> screenshot" style="max-width:200px;">
+            <% } %>
+            <% if (project.demo) { %>
+              <a href="<%= project.demo %>" target="_blank">Live Demo</a>
+            <% } %>
+            <% if (project.link) { %>
+              <a href="<%= project.link %>" target="_blank">Source</a>
+            <% } %>
+          </div>
+        <% }); %>
+      </section>
+    <% } %>
+
+    <!-- Experience -->
+    <% if (data.experience && data.experience.length) { %>
+      <section>
+        <h2>Experience</h2>
+        <% data.experience.forEach(function(exp) { %>
+          <div class="experience">
+            <h3><%= exp.role %> @ <%= exp.company %></h3>
+            <span><%= exp.period %></span>
+            <p><%= exp.description %></p>
+            <% if (exp.tech) { %>
+              <p><strong>Tech:</strong> <%= exp.tech.join(', ') %></p>
+            <% } %>
+          </div>
+        <% }); %>
+      </section>
+    <% } %>
+
+    <!-- Education -->
+    <% if (data.education && data.education.length) { %>
+      <section>
+        <h2>Education</h2>
+        <% data.education.forEach(function(edu) { %>
+          <div class="education">
+            <h3><%= edu.school %></h3>
+            <span><%= edu.degree %> (<%= edu.year %>)</span>
+            <% if (edu.highlights) { %>
+              <ul>
+                <% edu.highlights.forEach(function(h) { %>
+                  <li><%= h %></li>
+                <% }); %>
+              </ul>
+            <% } %>
+          </div>
+        <% }); %>
+      </section>
+    <% } %>
+
+    <!-- Achievements / Awards -->
+    <% if (data.achievements && data.achievements.length) { %>
+      <section>
+        <h2>Achievements & Awards</h2>
+        <ul>
+          <% data.achievements.forEach(function(a) { %>
+            <li>
+              <strong><%= a.title %></strong> (<%= a.year %>) - <%= a.description %>
+            </li>
+          <% }); %>
+        </ul>
+      </section>
+    <% } %>
+
+    <!-- Testimonials -->
+    <% if (data.testimonials && data.testimonials.length) { %>
+      <section>
+        <h2>Testimonials</h2>
+        <% data.testimonials.forEach(function(t) { %>
+          <blockquote>
+            “<%= t.quote %>”
+            <footer>— <%= t.name %>, <%= t.role %></footer>
+          </blockquote>
+        <% }); %>
+      </section>
+    <% } %>
+
+    <!-- Blog -->
+    <% if (data.blog && data.blog.length) { %>
+      <section>
+        <h2>Blog</h2>
+        <ul>
+          <% data.blog.forEach(function(post) { %>
+            <li>
+              <a href="<%= post.link %>" target="_blank"><%= post.title %></a>
+            </li>
+          <% }); %>
+        </ul>
+      </section>
+    <% } %>
+
+    <!-- Contact -->
+    <section>
+      <h2>Contact</h2>
+      <ul>
+        <% if (data.email) { %><li><strong>Email:</strong> <%= data.email %></li><% } %>
+        <% if (data.social && data.social.github) { %>
+          <li><a href="<%= data.social.github %>" target="_blank">GitHub</a></li>
+        <% } %>
+        <% if (data.social && data.social.linkedin) { %>
+          <li><a href="<%= data.social.linkedin %>" target="_blank">LinkedIn</a></li>
+        <% } %>
+        <% if (data.social && data.social.twitter) { %>
+          <li><a href="<%= data.social.twitter %>" target="_blank">Twitter</a></li>
+        <% } %>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>
+        <% if (data.footer) { %>
+          <%= data.footer %>
+        <% } else { %>
+          &copy; <%= new Date().getFullYear() %> <%= data.name %>
+        <% } %>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

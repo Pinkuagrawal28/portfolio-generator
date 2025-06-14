@@ -1,0 +1,27 @@
+{
+  "name": "portfolio-gen",
+  "version": "1.0.0",
+  "description": "CLI-based YAML portfolio generator with preview and instant hosting",
+  "main": "bin/cli.js",
+  "type": "module",
+  "bin": {
+    "portfolio-gen": "./bin/cli.js"
+  },
+  "scripts": {
+    "build": "node lib/interpreter.js",
+    "preview": "node lib/server.js",
+    "deploy": "node lib/uploader.js"
+  },
+  "author": "Pinku Kumar Agrawal",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "commander": "^11.0.0",
+    "ejs": "^3.1.9",
+    "express": "^4.21.2",
+    "form-data": "^4.0.0",
+    "fs-extra": "^11.3.0",
+    "js-yaml": "^4.1.0",
+    "open": "^10.1.2"
+  }
+}

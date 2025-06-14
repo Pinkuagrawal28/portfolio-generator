@@ -1,0 +1,71 @@
+name: Jane Doe
+title: Software Engineer
+tagline: Building tools that make life easier.
+bio: >
+  Passionate developer with a knack for building scalable web applications and delightful user experiences.
+email: jane@example.com
+phone: "+1-555-1234"
+location: San Francisco, CA
+resume: resume.pdf
+
+skills:
+  Languages: [JavaScript, Python, TypeScript]
+  Frameworks: [React, Node.js, Express]
+  Tools: [Git, Docker, Postman]
+  Databases: [MongoDB, PostgreSQL]
+
+projects:
+  - title: Portfolio Generator
+    description: A CLI tool to generate beautiful developer portfolios.
+    tech: [Node.js, EJS, YAML]
+    link: https://github.com/janedoe/portfolio-gen
+    image: project1.png
+    demo: https://portfolio-gen-demo.com
+  - title: Chatbot
+    description: AI-powered chatbot for customer support.
+    tech: [Python, TensorFlow]
+    link: https://github.com/janedoe/chatbot
+
+experience:
+  - company: Acme Corp
+    role: Software Engineer
+    period: 2022–Present
+    description: >
+      Built scalable APIs and led the migration to microservices.
+    tech: [Node.js, Docker, AWS]
+  - company: Beta Inc
+    role: Intern
+    period: Summer 2021
+    description: >
+      Developed internal tools for data analysis.
+
+education:
+  - school: University of Example
+    degree: B.Sc. Computer Science
+    year: 2022
+    highlights: [Graduated with honors, President of Coding Club]
+
+achievements:
+  - title: Winner, Hackathon X
+    year: 2023
+    description: Built a real-time collaboration app.
+  - title: AWS Certified Developer
+    year: 2022
+
+testimonials:
+  - name: John Smith
+    role: Manager, Acme Corp
+    quote: "Jane is a fantastic engineer and team player."
+
+social:
+  github: https://github.com/janedoe
+  linkedin: https://linkedin.com/in/janedoe
+  twitter: https://twitter.com/janedoe
+
+blog:
+  - title: How to Build a CLI in Node.js
+    link: https://blog.example.com/cli-nodejs
+  - title: My Internship Experience
+    link: https://blog.example.com/internship
+
+footer: "© 2025 Jane Doe"
